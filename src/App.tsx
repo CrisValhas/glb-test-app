@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   ContactShadows,
   Environment,
@@ -9,13 +9,7 @@ import { Canvas } from "@react-three/fiber";
 import { Model, WallGeometries } from "./models/models.tsx";
 import { Grid } from "@mui/material";
 import Dropdown from "./components/dropdown.tsx";
-
-export const wallTexts = {
-  Front_Wall: "Front Wall",
-  Back_Wall: "Back Wall",
-  Right_Wall: "Right Wall",
-  Left_Wall: "Left Wall",
-};
+import { wallTexts } from "./App.interface.ts";
 
 const wallGeometries = {
   Front_Wall: {
@@ -37,18 +31,18 @@ const wallGeometries = {
 };
 
 export default function App() {
-  const [selectedWalls, setSelectedWalls] = useState<string[]>([]);
+  const [selectedWalls, setSelectedWalls] = useState<string[]>([wallTexts.Front_Wall]);
 
   const getWallName = (geometricName: string): string => {
     switch (geometricName) {
       case "Front_Wall":
-        return "Frontal";
+        return "Front";
       case "Back_Wall":
-        return "Trasera";
+        return "Back";
       case "Right_Wall":
-        return "Derecha";
+        return "Right";
       case "Left_Wall":
-        return "Izquierda";
+        return "Left";
       default:
         return "";
     }
@@ -75,7 +69,7 @@ export default function App() {
         <color attach="background" args={["#eee"]} />
         <Environment preset="studio" />
         <PerspectiveCamera makeDefault position={[8, 4, 8]} />
-        <OrbitControls autoRotate/>
+        <OrbitControls autoRotate />
         <Model
           selectWall={selectWall}
           selectedWalls={selectedWalls}
@@ -100,4 +94,3 @@ export default function App() {
     </Grid>
   );
 }
-

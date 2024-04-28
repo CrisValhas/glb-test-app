@@ -1,5 +1,5 @@
 import BarModel from "./Barn_Testing.glb";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, MutableRefObject } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Vector3 } from "@react-three/fiber/dist/declarations/src/three-types";
 import {
@@ -31,12 +31,12 @@ interface Node {
   name: string;
   geometry: BufferGeometry;
   material?: MeshBasicMaterial;
-  mesh: React.MutableRefObject<any>;
+  mesh: MutableRefObject<unknown>;
 }
 
 export function Model(props: ModelProps): JSX.Element {
   const { nodes, materials } = useGLTF(BarModel);
-  const [textures, setTextures] = useState<any>({});
+  const [textures, setTextures] = useState<unknown>({});
 
   const isWallSelected = (wallName: string): boolean => {
     return props.selectedWalls.includes(wallName);

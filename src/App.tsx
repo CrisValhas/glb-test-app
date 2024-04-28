@@ -65,7 +65,7 @@ export default function App() {
   };
 
   return (
-    <Grid container height={"100vh"} position={"relative"}>
+    <Grid container height={"100vh"} width={"100vw"} position={"relative"}>
       <Canvas
         style={{
           width: "100%",
@@ -75,7 +75,7 @@ export default function App() {
         <color attach="background" args={["#eee"]} />
         <Environment preset="studio" />
         <PerspectiveCamera makeDefault position={[8, 4, 8]} />
-        <OrbitControls />
+        <OrbitControls autoRotate/>
         <Model
           selectWall={selectWall}
           selectedWalls={selectedWalls}

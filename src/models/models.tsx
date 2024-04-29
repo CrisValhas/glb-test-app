@@ -49,7 +49,7 @@ export function Model(props: ModelProps): JSX.Element {
     Object.keys(props.wallTexts).forEach((wallName) => {
       const text = props.wallTexts[wallName];
       textureLoader.load(
-        `https://dummyimage.com/1920x1200/345a94/ffffff&text=${text}`,
+        `https://dummyimage.com/400x400/345a94/ffffff&text=${text}`,
         (texture) => {
           wallTextureMap[wallName] = texture;
           setTextures({ ...wallTextureMap });

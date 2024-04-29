@@ -75,7 +75,7 @@ export default function App() {
         <color attach="background" args={["#eee"]} />
         <Environment preset="studio" />
         <PerspectiveCamera makeDefault position={[8, 4, 8]} />
-        <OrbitControls />
+        <OrbitControls autoRotate />
         <Model
           selectWall={selectWall}
           selectedWalls={selectedWalls}
@@ -100,4 +100,3 @@ export default function App() {
     </Grid>
   );
 }
-
